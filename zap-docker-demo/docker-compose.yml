@@ -1,0 +1,16 @@
+version: '2'
+services:
+  webgoat:
+    container_name: webgoat
+    image: szsecurity/webgoat
+  
+  zap:
+    container_name: zap
+    image: owasp/zap2docker-stable
+    depends_on:
+      - webgoat
+    ports:
+      - "8080:8080"
+    links:
+      - webgoat
+    command: [zap.sh -daemon -host 0.0.0.0 -port 8080]
