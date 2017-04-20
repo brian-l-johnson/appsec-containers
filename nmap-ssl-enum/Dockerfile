@@ -5,6 +5,6 @@ run apt-get update && apt-get install -y \
   python \
   python-nmap
 
-add nmap-ssp.py /
+add nmap-ssl.py /
 
 ENTRYPOINT ["/nmap-ssl.py"]
